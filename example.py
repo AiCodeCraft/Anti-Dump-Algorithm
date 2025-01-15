@@ -30,6 +30,7 @@ class DumpindexAnalyzer:
             'urgency': r'\b(urgent|asap|emergency|!!+|\?\?+)\b',
             'informal': r'\b(pls|plz|thx)\b',
             'vague': r'\b(something|somehow|maybe|probably)\b'
+            # wird ersetzt durch KI
         }
         
         # Muster für technische Details
