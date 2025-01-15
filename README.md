@@ -6,11 +6,10 @@ The **Anti-Dump Algorithm** is designed to evaluate and filter out unproductive 
 ### Global Formula
 ![AntiDumpIndex](adi-universal.jpg)
 
+
+LaTex-Code:
 ```
-in LaTex-Code:
-...
 ADI=wN⋅Noise−(wE⋅Effort+wB⋅BonusFactors)wC⋅Context+wD⋅Details+wP⋅PenaltyFactors\text{ADI} = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{BonusFactors})}{w_C \cdot \text{Context} + w_D \cdot \text{Details} + w_P \cdot \text{PenaltyFactors}}ADI=wC​⋅Context+wD​⋅Details+wP​⋅PenaltyFactorswN​⋅Noise−(wE​⋅Effort+wB​⋅BonusFactors)
-...
 ```
 ---
 
