@@ -1,3 +1,5 @@
+# This is only an example logic fur the DumpIndex
+# Copyright 2008 - 2025 Volkan Kücükbudak
 from dataclasses import dataclass
 from typing import List, Dict, Tuple
 import re
