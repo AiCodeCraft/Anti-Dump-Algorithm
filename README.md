@@ -3,6 +3,14 @@
 ## Purpose
 The **Anti-Dump Algorithm** is designed to evaluate and filter out unproductive or irrelevant input, commonly referred to as "noise," while prioritizing clarity, effort, and context. This algorithm measures the quality of input based on several key parameters.
 
+### Global Formula
+[AntiDumpIndex](adi-universal.jpg)
+```
+in LaTex-Code:
+...
+ADI=wN⋅Noise−(wE⋅Effort+wB⋅BonusFactors)wC⋅Context+wD⋅Details+wP⋅PenaltyFactors\text{ADI} = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{BonusFactors})}{w_C \cdot \text{Context} + w_D \cdot \text{Details} + w_P \cdot \text{PenaltyFactors}}ADI=wC​⋅Context+wD​⋅Details+wP​⋅PenaltyFactorswN​⋅Noise−(wE​⋅Effort+wB​⋅BonusFactors)
+...
+```
 ---
 
 ## Formula
