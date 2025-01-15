@@ -229,8 +229,9 @@ class DumpindexAnalyzer:
                 recommendations.append("Fügen Sie eine ausführlichere Beschreibung hinzu")
                 
         return recommendations
-
-# Beispiel für die Verwendung
+# =====================================================================================================
+# Example usage
+# =====================================================================================================
 analyzer = DumpindexAnalyzer()
 
 # Test mit verschiedenen Eingaben
