@@ -4,7 +4,7 @@
 The **Anti-Dump Algorithm** is designed to evaluate and filter out unproductive or irrelevant input, commonly referred to as "noise," while prioritizing clarity, effort, and context. This algorithm measures the quality of input based on several key parameters.
 
 ### Global Formula
-[AntiDumpIndex](adi-universal.jpg)
+![AntiDumpIndex](adi-universal.jpg)
 
 ```
 in LaTex-Code:
