@@ -5,6 +5,7 @@ The **Anti-Dump Algorithm** is designed to evaluate and filter out unproductive 
 
 ### Global Formula
 [AntiDumpIndex](adi-universal.jpg)
+
 ```
 in LaTex-Code:
 ...
