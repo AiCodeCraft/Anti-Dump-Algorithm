@@ -237,7 +237,7 @@ class DumpindexAnalyzer:
         """
         Generate recommendations for improving the input based on the metrics and findings.
         """
-        recommendations = [] # This is only an example and you will need your own recommendations to teach the user *lol
+        recommendations = [] # This is only an example and you will need your own recommendations with different values to teach the users *lol
             
         if metrics.noise > 0.3:
             recommendations.append("Reduce informal or urgent expressions.")
