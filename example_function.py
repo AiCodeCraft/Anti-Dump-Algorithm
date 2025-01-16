@@ -41,7 +41,7 @@ class DumpindexAnalyzer:
             'vague': r'\b(something|somehow|maybe|probably)\b'
         }
         
-        # Patterns to identify technical details - This is only an example and you will need your own noise_patterns detail_patterns
+        # Patterns to identify technical details - This is only an example and you will need your own detail_patterns
         self.detail_patterns = {
             'code_elements': r'\b(function|class|method|variable|array|object)\b',
             'technical_terms': r'\b(error|exception|bug|issue|crash|fail)\b',
@@ -90,7 +90,7 @@ class DumpindexAnalyzer:
         Evaluate the context provided in the input.
         Identifies indicators such as background, environment, or goal statements.
         """
-        context_indicators = {
+        context_indicators = { # This is only an example and you will need your own context_indicators 
             'background': r'\b(because|since|as|when|while)\b',
             'environment': r'\b(using|version|environment|platform|system)\b',
             'goal': r'\b(trying to|want to|need to|goal is|attempting to)\b'
@@ -237,7 +237,7 @@ class DumpindexAnalyzer:
         """
         Generate recommendations for improving the input based on the metrics and findings.
         """
-        recommendations = []
+        recommendations = [] # This is only an example and you will need your own recommendations to teach the user *lol
             
         if metrics.noise > 0.3:
             recommendations.append("Reduce informal or urgent expressions.")
