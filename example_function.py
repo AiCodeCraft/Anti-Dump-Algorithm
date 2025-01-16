@@ -34,14 +34,14 @@ class DumpindexAnalyzer:
             'penalty': 1.0
         }
         
-        # Patterns for identifying "Noise" elements in text
+        # Patterns for identifying "Noise" elements in text - This is only an example and you will need your own noise_patterns
         self.noise_patterns = {
             'urgency': r'\b(urgent|asap|emergency|!!+|\?\?+)\b',
             'informal': r'\b(pls|plz|thx)\b',
             'vague': r'\b(something|somehow|maybe|probably)\b'
         }
         
-        # Patterns to identify technical details
+        # Patterns to identify technical details - This is only an example and you will need your own noise_patterns detail_patterns
         self.detail_patterns = {
             'code_elements': r'\b(function|class|method|variable|array|object)\b',
             'technical_terms': r'\b(error|exception|bug|issue|crash|fail)\b',
