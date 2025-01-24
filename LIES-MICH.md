@@ -1,4 +1,4 @@
-```markdown
+
 ---
 title: "Anti-Dump Algorithm (ADI)"
 description: "Weeding out the nonsense and fostering clarity in user inputs"
@@ -331,4 +331,4 @@ Mit diesem Werkzeug sparst du **Zeit** und **Ressourcen** und förderst gleichze
 - Danke an alle Mitwirkenden, die das Anti-Dump-Konzept mit Ideen und Feedback vorangebracht haben.
 
 **Stay Dump-Free!** 
-```
+
