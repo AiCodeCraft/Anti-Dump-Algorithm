@@ -8,7 +8,7 @@ The **Anti-Dump Algorithm** calculates the **ADI (Anti-Dump Index)**. It is spec
 #### Calculate Anti-Dump Index (ADI)
 ![AntiDumpIndex](adi-universal.jpg)
 
-##### Copy LaTeX Code:
+###### Copy LaTeX Code:
 ```
 ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{BonusFactors})}{w_C \cdot \text{Context} + w_D \cdot \text{Details} + w_P \cdot \text{PenaltyFactors}}
 ```
