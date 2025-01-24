@@ -1,3 +1,5 @@
+# How to use Anti-Dump-Algorithm to calculate ADI (ANTI-DUMP-INDEX)
+# ==== Copyright 2008 - 2025 S. Volkan Kücükbudak ====
 # NOTE! THIS IS NOT AN APP!
 # IT SHOWS YOU HOW YOU CAN USE ADI - MAYBE FOR YOUR AI TOOLS
 # ==== IF YOU USE MY CODE READ LICENSE FILE PLEASE ====
