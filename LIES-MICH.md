@@ -2,22 +2,22 @@
 Weeding out the nonsense and fostering clarity.
 We measure the “Dumpiness” of an input by quantifying Noise vs. Effort, Context, and Details.
 
-1. Einleitung & Grundidee
+## 1. Einleitung & Grundidee
 ### Hintergrund
 - Wenn du AI-Tools, Foren, oder Support-Systeme betreibst, kennst du das Problem:
 - Viele Anfragen sind unklar („Help plz urgent asap!!!“). 
 - Wesentliche Informationen (Fehlermeldungen, Code-Beispiele, Framework-Versionen) fehlen. 
 - Um Dummheit (bzw. das Rauschen in einer Anfrage) mathematisch zu erkennen, führten wir ein Scoring-System ein, das die Qualität eines Inputs berechnet. Diese Qualität nennt sich Anti-Dump-Index (ADI), früher als DumpIndex in einfacher Form bekannt.
 ### Kernidee
-1. Noise (Rauschen) identifizieren: 
+#### 1. Noise (Rauschen) identifizieren: 
 - Füllwörter („pls fix“, „urgent“, „help“), 
 - Übermäßige Satzzeichen (!!!, ???), 
 - Irrelevante Fachbegriffe ohne Substanz. 
-2. Effort (Mühe) und Details messen: 
+#### 2. Effort (Mühe) und Details messen: 
 - Klares Problemstatement, 
 - Verständliche Struktur, 
 - Genaue Informationen zu Fehlermeldungen, Code, Versionen. 
-3. Context bewerten: 
+#### 3. Context bewerten: 
 - Ist die Systemumgebung (z. B. Python 3.9, Windows 10) angegeben? 
 - Gibt es einen klaren Zweck oder ein Ziel? 
 Ziel: Inputs mit hohem Rauschen und wenig Inhalt aussondern bzw. die Nutzer um Überarbeitung bitten, während solide Beiträge priorisiert werden.
