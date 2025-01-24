@@ -1,9 +1,3 @@
-
----
-title: "Anti-Dump Algorithm (ADI)"
-description: "Weeding out the nonsense and fostering clarity in user inputs"
----
-
 # Anti-Dump Algorithm (ADI)
 
 > **Weeding out the nonsense and fostering clarity.**  
