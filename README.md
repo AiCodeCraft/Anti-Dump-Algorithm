@@ -301,7 +301,10 @@ This tool saves **time** and **resources** while fostering **better questions** 
 
 ## 12. License & Acknowledgments
 
-- This document and example code are licensed under a **free license** 
-- Thanks to all dumpy website users! Real thanks! From Funfact to real solution!
+- This document and example code are licensed under a **Public license** 
+- Thanks to all dumpy ai-website users!  Realy , real thanks! From funfact to real solution!
+
+#### Copyright
+S. Volkan Kücükbudak
 
 **Stay Dump-Free!**
