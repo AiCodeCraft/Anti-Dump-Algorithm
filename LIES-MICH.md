@@ -78,12 +78,14 @@ $$
    - Noise: 3/4 = 0.75  
    - Effort: 1  
    - Context: 0  
-   - Details: 0  
+   - Details: 0
+  
+   
 $$
-   \text{DumpIndex}
-   = \frac{0.75 - 1}{0 + 0} 
-   = \infty
-   \quad(\text{Pure Dummheit detected})
+\text{DumpIndex}
+= \frac{0.75 - 1}{0 + 0} 
+= \infty
+\quad(\text{Pure Dummheit detected})
 $$
 
 2. **Input**: _„Error: 'KeyError' in Python. Occurs when accessing a dictionary with missing key.“_  
@@ -93,10 +95,10 @@ $$
    - Details: 1 (konkreter Error)  
 
 $$
-   \text{DumpIndex}
-   = \frac{0 - 3}{2 + 1}
-   = -1
-   \quad(\text{Qualifizierter Beitrag})
+\text{DumpIndex}
+= \frac{0 - 3}{2 + 1}
+= -1
+\quad(\text{Qualifizierter Beitrag})
 $$
 
 
