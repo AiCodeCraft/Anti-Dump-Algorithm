@@ -49,10 +49,13 @@ $$
 = \frac{\text{Noise} \;-\; \text{Effort}}{\text{Context} + \text{Details}}
 $$
 
+$$
 - \(\text{Noise}\): Anteil irrelevanter Wörter/Phrasen (z. B. „pls fix“, „ASAP“, „???“).  
 - \(\text{Effort}\): Klarheit und Struktur (sinnvolle Keywords, Sätze, Formatierung).  
 - \(\text{Context}\): Verweis auf Betriebssystem, Framework, Umgebung etc.  
 - \(\text{Details}\): Tiefe technischer Infos (Fehlermeldung, Codebeispiel).  
+
+$$
 
 **Interpretation**:  
 - **Hoher DumpIndex** \(\Rightarrow\) „Dumpiness“ groß, viel Rauschen, wenig Mühe  
