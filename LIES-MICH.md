@@ -62,10 +62,10 @@ $$
 $$
 
 
-- \(\text{Noise}\): Anteil irrelevanter Wörter/Phrasen (z. B. „pls fix“, „ASAP“, „???“).  
-- \(\text{Effort}\): Klarheit und Struktur (sinnvolle Keywords, Sätze, Formatierung).  
-- \(\text{Context}\): Verweis auf Betriebssystem, Framework, Umgebung etc.  
-- \(\text{Details}\): Tiefe technischer Infos (Fehlermeldung, Codebeispiel).  
+- {Noise}: Anteil irrelevanter Wörter/Phrasen (z. B. „pls fix“, „ASAP“, „???“).  
+- {Effort}: Klarheit und Struktur (sinnvolle Keywords, Sätze, Formatierung).  
+- {Context}: Verweis auf Betriebssystem, Framework, Umgebung etc.  
+- {Details}: Tiefe technischer Infos (Fehlermeldung, Codebeispiel).  
 
 
 
