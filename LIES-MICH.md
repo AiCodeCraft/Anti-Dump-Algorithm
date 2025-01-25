@@ -44,10 +44,10 @@ Ziel: **Inputs** mit hohem Rauschen und wenig Inhalt **aussondern** bzw. den Use
 
 Die **einfache** Variante des Algorithmus wird durch den **DumpIndex** definiert:
 
-\[
+$$
 \text{DumpIndex} 
 = \frac{\text{Noise} \;-\; \text{Effort}}{\text{Context} + \text{Details}}
-\]
+$$
 
 - \(\text{Noise}\): Anteil irrelevanter Wörter/Phrasen (z. B. „pls fix“, „ASAP“, „???“).  
 - \(\text{Effort}\): Klarheit und Struktur (sinnvolle Keywords, Sätze, Formatierung).  
