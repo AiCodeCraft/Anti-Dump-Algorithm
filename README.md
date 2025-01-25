@@ -16,10 +16,11 @@ ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{
 ## Formula
 
 The Basic parameters
-
+$$
 \[
 \text{DumpIndex} = \frac{\text{Noise} - \text{Effort}}{\text{Context} + \text{Details}}
 \]
+$$
 
 ### Parameters:
 1. **Noise (N):**
