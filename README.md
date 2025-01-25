@@ -1,6 +1,10 @@
 # The Anti-Dump Algorithm
 
-
+$$
+\text{Komplexitätsindex} 
+= \frac{\text{Systemkomplexität} \cdot \text{Variablen}}
+       {\text{Verständlichkeit} + \text{Dokumentation}}
+$$
 
 If you develop AI tools, you’ve probably encountered how surprisingly unproductive or nonsensical some human input can be. These "dumpy" requests waste both time and money! After extensive testing, I realized that filtering such input was no easy task. Large Language Models (LLMs) often provide answers to even the most irrelevant or unclear queries. So, I thought: why not solve this problem with math? And that’s exactly what happened!
 
