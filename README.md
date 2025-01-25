@@ -3,6 +3,8 @@
 > **Weeding out the nonsense and fostering clarity.**  
 > _We measure the “Dumpiness” of an input by quantifying Noise vs. Effort, Context, and Details._ 😅
 
+![ADI ANti-Dump-Index](adi.png)
+
 If you develop AI tools, you’ve probably encountered how surprisingly unproductive or nonsensical some human input can be. These "dumpy" requests waste both time and money! After extensive testing, I realized that filtering such input was no easy task. Large Language Models (LLMs) often provide answers to even the most irrelevant or unclear queries. So, I thought: why not solve this problem with math? And that’s exactly what happened!
 
 ## Purpose
