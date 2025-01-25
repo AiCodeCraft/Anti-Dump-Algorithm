@@ -94,9 +94,9 @@ $$
 
 ## 3. Zones & Visual Representation
 
-- **DumpZone**: \(\text{DumpIndex} > 1\)  
-- **GrayArea**: \(0 \leq \text{DumpIndex} \leq 1\)  
-- **GeniusZone**: \(\text{DumpIndex} < 0\)
+- **DumpZone**: \(\text{DumpIndex} > 1
+- **GrayArea**: 0 ≤ {DumpIndex} ≤  1 
+- **GeniusZone**: DumpIndex} < 0
 
 The values can be **graphically represented** in a chart to quickly identify whether a request lands in the "Dump Zone" or "Genius Zone."
 
@@ -122,20 +122,20 @@ $$
 
 
 **Parameters**:
-1. \(\text{Noise}\)  
-2. \(\text{Effort}\)  
-3. \(\text{Context}\)  
-4. \(\text{Details}\)  
-5. \(\text{BonusFactors}\): Points for clean structure, accurate terms, code blocks.  
-6. \(\text{PenaltyFactors}\): Deductions for ALL CAPS, irrelevant jargon, overuse of "!!!" etc.  
+1. {Noise}\
+2. {Effort}
+3. {Context}
+4. {Details}
+5. {BonusFactors}: Points for clean structure, accurate terms, code blocks.  
+6. {PenaltyFactors}: Deductions for ALL CAPS, irrelevant jargon, overuse of "!!!" etc.  
 
 **Weighting Factors**: \(w_N, w_E, w_C, w_D, w_B, w_P\)  
 - Allow **fine-tuning** (e.g., support systems vs. general forums).
 
 **Interpretation**:  
-- **ADI > 1**: Very poor input (Dump).  
-- **0 \leq ADI \leq 1**: Mediocre input.  
-- **ADI < 0**: Good input, should be prioritized.
+- **ADI > 1**: Reject input, ask for revision.
+- **0 ≤ ADI ≤ 1**: Medium-priority input.
+- **ADI < 0**: High-quality input, prioritize response.
 
 
 ## 6. Examples & Edge Cases
@@ -153,6 +153,7 @@ $$
 $$
 
 ### 6.2 Half-Decent
+
 > _"My Python script throws a KeyError. I don't know how to fix it."_
 
 - **Noise** = 0  
@@ -165,6 +166,7 @@ $$
 $$
 
 ### 6.3 Exemplary
+
 > _"I get a ‘KeyError’ in Python when accessing a dictionary with a missing key. Here’s the code: …"_
 
 - **Noise** = 0  
