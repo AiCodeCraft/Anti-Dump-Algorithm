@@ -305,6 +305,6 @@ This tool saves **time** and **resources** while fostering **better questions** 
 - Thanks to all dumpy ai-website users!  Realy , real thanks! From funfact to real solution!
 
 #### Copyright
-S. Volkan Kücükbudak
+[S. Volkan Kücükbudak](https://github.com/volkansah)
 
 **Stay Dump-Free!**
