@@ -64,13 +64,12 @@ $$
    - Effort: 1  
    - Context: 0  
    - Details: 0  
-
-   \[
+$$
    \text{DumpIndex}
    = \frac{0.75 - 1}{0 + 0} 
    = \infty
    \quad(\text{Pure Dummheit detected})
-   \]
+$$
 
 2. **Input**: _„Error: 'KeyError' in Python. Occurs when accessing a dictionary with missing key.“_  
    - Noise: 0 (kein Füllwort)  
@@ -78,12 +77,12 @@ $$
    - Context: 2 (Python, Dictionary)  
    - Details: 1 (konkreter Error)  
 
-   \[
+$$
    \text{DumpIndex}
    = \frac{0 - 3}{2 + 1}
    = -1
    \quad(\text{Qualifizierter Beitrag})
-   \]
+$$
 
 
 
@@ -101,10 +100,10 @@ Die Werte können in einem Diagramm **grafisch** dargestellt werden, um schnell 
 
 Um zu verstehen, **wie** sensibel der DumpIndex auf Änderungen in Noise und Effort reagiert, definieren wir einen **Gradient**:
 
-\[
+$$
 \text{Gradient}
 = \frac{\partial (\text{DumpIndex})}{\partial (\text{Noise}, \text{Effort})}
-\]
+$$
 
 So lassen sich Inputs „on the fly“ bewerten und man sieht, wie stark ein kleiner Anstieg von Noise das Endergebnis verschlechtert (oder wie viel Effort das Ganze rettet).
 
@@ -114,7 +113,7 @@ So lassen sich Inputs „on the fly“ bewerten und man sieht, wie stark ein kle
 
 Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, entstand die **globale Formel**:
 
-\[
+$$
 \text{ADI} 
 = \frac{
   w_N \cdot \text{Noise} 
@@ -128,7 +127,7 @@ Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, 
   + w_D \cdot \text{Details} 
   + w_P \cdot \text{PenaltyFactors}
 }
-\]
+$$
 
 **Parameter**:
 1. \(\text{Noise}\)  
@@ -158,12 +157,12 @@ Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, 
 - **Context** = 0  
 - **Details** = 0  
 
-\[
+$$
 \text{DumpIndex}
 = \frac{0.5 - 0}{0 + 0}
 = \infty
 \quad(\text{Vollkatastrophe})
-\]
+$$
 
 ### 6.2 Halb-OK
 > _„My Python script throws a KeyError. I don't know how to fix it.“_
@@ -173,12 +172,12 @@ Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, 
 - **Context** = 1  
 - **Details** = 0  
 
-\[
+$$
 \text{DumpIndex}
 = \frac{0 - 1}{1 + 0}
 = -1
 \quad(\text{Solide, aber es fehlen weitere Details})
-\]
+$$
 
 ### 6.3 Vorbildlich
 > _„I get a ‘KeyError’ in Python when accessing a dictionary with a missing key. Here’s the code: …“_
@@ -188,12 +187,12 @@ Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, 
 - **Context** = 2  
 - **Details** = 1  
 
-\[
+$$
 \text{DumpIndex}
 = \frac{0 - 2}{2 + 1}
 = -0.67
 \quad(\text{Perfekter Beitrag})
-\]
+$$
 
 
 
@@ -201,38 +200,39 @@ Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, 
 
 ### 7.1 Fehlertoleranz & Rechtschreibfehler
 - Nicht jede Tippfehlerflut soll den Noise-Wert massiv erhöhen.  
-- Ab einem gewissen Prozentsatz (>10 %) deutet es ggf. auf Nachlässigkeit hin.  
-
-\[
+- Ab einem gewissen Prozentsatz (>10 %) deutet es ggf. auf Nachlässigkeit hin.
+- 
+$$
 \text{Noise}_{\text{Rechtschreibung}}
 = \frac{\text{Fehlerhafte Wörter}}{\text{Gesamtwörter}}
-\]
+$$
 
 ### 7.2 ProfilierungsIndex (Pseudo-Kompetenz)
 Erkennt Inputs, die schwülstig klingen, aber wenig Substanz bieten:
 
-\[
+$$
 \text{ProfilierungsIndex} 
 = \frac{\text{PseudoFachbegriffe} + \text{Noise}}
        {\text{Effort} + \text{Details}}
-\]
+$$
 
 ### 7.3 Adjustierte Noise-Berechnung
-\[
+
+$$
 \text{Noise}_{\text{Adjusted}}
 = \text{Noise}
 \cdot
 \Bigl(
   1 - \frac{\text{Details}}{\text{Gesamtwörter}}
 \Bigr)
-\]
+$$
 
 ### 7.4 Anti-Dump-Score (Invers)
-\[
+
+$$
 \text{AntiDumpScore}
 = \frac{\text{Effort} + \text{Context} + \text{Details}}{\text{Noise} + 1}
-\]
-
+$$
 
 
 ## 8. Anwendungsbereiche
