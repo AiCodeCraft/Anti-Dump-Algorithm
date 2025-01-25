@@ -3,6 +3,11 @@
 > **Weeding out the nonsense and fostering clarity.**  
 > _We measure the “Dumpiness” of an input by quantifying Noise vs. Effort, Context, and Details._
 
+### Are you a DUMP?
+$$
+ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{BonusFactors})}{w_C \cdot \text{Context} + w_D \cdot \text{Details} + w_P \cdot \text{PenaltyFactors}}
+$$
+
 <details>
 <summary><strong>Table of Contents</strong></summary>
 
