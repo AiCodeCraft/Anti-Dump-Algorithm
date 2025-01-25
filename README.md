@@ -22,8 +22,8 @@ $$
 ## Formula
 
 The Basic parameters
-$$
 
+$$
 \text{DumpIndex} 
 = \frac{\text{Noise} - \text{Effort}}
 {\text{Context} + \text{Details}}
