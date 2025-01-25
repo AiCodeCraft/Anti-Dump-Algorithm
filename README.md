@@ -14,6 +14,7 @@ $$
 ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{BonusFactors})}{w_C \cdot \text{Context} + w_D \cdot \text{Details} + w_P \cdot \text{PenaltyFactors}}
 $$
 
+
 <details>
 <summary><strong>Table of Contents</strong></summary>
 
@@ -276,6 +277,9 @@ else:
 ```
 
 ---
+
+#### Other Example
+- [How to use](HOW-TO-USE.md)
 
 ## 11. Conclusion
 
