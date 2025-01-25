@@ -357,7 +357,6 @@ for input_text in test_inputs:
 
 ---
 
-## License
-Please refer to the LICENSE file for terms of use. Remember to credit the original author and respect free code contributions.
-
 **Stay Dump-Free!** 🚀
+
+Markdown file created with Git Projektanalyst @GPTStore
