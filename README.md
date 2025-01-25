@@ -295,7 +295,7 @@ This tool saves **time** and **resources** while fostering **better questions** 
 
 ## 12. License & Acknowledgments
 
-- This document and example code are licensed under a **free license** (see original project). Please provide credit where due.  
-- Thanks to all contributors who helped advance the Anti-Dump concept with ideas and feedback.
+- This document and example code are licensed under a **free license** 
+- Thanks to all dumpy website users! Real thanks! From Funfact to real solution!
 
 **Stay Dump-Free!**
