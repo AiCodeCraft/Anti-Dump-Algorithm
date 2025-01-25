@@ -49,13 +49,13 @@ $$
 = \frac{\text{Noise} \;-\; \text{Effort}}{\text{Context} + \text{Details}}
 $$
 
-$$
+
 - \(\text{Noise}\): Anteil irrelevanter Wörter/Phrasen (z. B. „pls fix“, „ASAP“, „???“).  
 - \(\text{Effort}\): Klarheit und Struktur (sinnvolle Keywords, Sätze, Formatierung).  
 - \(\text{Context}\): Verweis auf Betriebssystem, Framework, Umgebung etc.  
 - \(\text{Details}\): Tiefe technischer Infos (Fehlermeldung, Codebeispiel).  
 
-$$
+
 
 **Interpretation**:  
 - **Hoher DumpIndex** \(\Rightarrow\) „Dumpiness“ groß, viel Rauschen, wenig Mühe  
@@ -117,20 +117,9 @@ So lassen sich Inputs „on the fly“ bewerten und man sieht, wie stark ein kle
 Um zusätzliche Aspekte – etwa **Bonus- und Strafpunkte** – zu integrieren, entstand die **globale Formel**:
 
 $$
-\text{ADI} 
-= \frac{
-  w_N \cdot \text{Noise} 
-  \;-\;
-  \Bigl(
-    w_E \cdot \text{Effort} 
-    + w_B \cdot \text{BonusFactors}
-  \Bigr)
-}{
-  w_C \cdot \text{Context} 
-  + w_D \cdot \text{Details} 
-  + w_P \cdot \text{PenaltyFactors}
-}
+ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{BonusFactors})}{w_C \cdot \text{Context} + w_D \cdot \text{Details} + w_P \cdot \text{PenaltyFactors}}
 $$
+
 
 **Parameter**:
 1. \(\text{Noise}\)  
