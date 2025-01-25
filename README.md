@@ -49,9 +49,11 @@ $$
 ## Adjusted Noise Calculation
 To refine the Noise parameter:
 
-\[
-\text{Noise}_{\text{Adjusted}} = \text{Noise} \cdot \left(1 - \frac{\text{Details}}{\text{Total Words}}\right)
-\]
+$$
+\text{Noise}_{\text{Adjusted}}
+= \text{Noise} \cdot \left(1 - \frac
+{\text{Details}}{\text{Total Words}}\right)
+$$
 
 This adjustment reduces Noise for inputs with substantial details.
 
