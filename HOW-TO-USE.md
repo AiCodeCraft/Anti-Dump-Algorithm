@@ -16,7 +16,7 @@ This implementation can be integrated into AI tools, support systems, or any app
 
 ## Python Implementation
 
-The code below demonstrates the core logic for calculating the ADI.
+The core logic for calculating the ADI is implemented in the `adi.py` file. This file includes functions to analyze input text and compute the ADI.
 
 ### Key Features
 1. **Metrics Extraction**:
@@ -41,17 +41,21 @@ ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{
 ---
 
 ## Example Code
-- see [Example App](example_app.py)
-or Below is the Python implementation of the Anti-Dump Algorithm:
-
-
+### `adi.py`
+This file contains the implementation of the Anti-Dump Algorithm. It includes functions to calculate noise, effort, context, details, bonus factors, and penalty factors, as well as to compute the ADI.
+You can use the ADI as follows:
 ```python
 from adi import DumpindexAnalyzer
 
 # Initialisiere den ADI-Analyzer
 analyzer = DumpindexAnalyzer()
 ```
+[View `adi.py` Source Code](./adi.py)
 
+### `example_app.py`
+This file demonstrates how to use the `adi.py` implementation in a simple Flask application. It includes endpoints to analyze input text and return the ADI and recommendations.
+
+[View `example_app.py` Source Code](./example_app.py)
 
 ---
 
@@ -71,4 +75,3 @@ analyzer = DumpindexAnalyzer()
 
 **Stay Dump-Free!** 🚀
 
-Markdown file created with Git Projektanalyst @GPTStore
