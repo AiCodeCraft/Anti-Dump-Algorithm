@@ -263,32 +263,35 @@ class DumpindexAnalyzer:
                     
         return recommendations
 
-# END
+# ADI END
 
 # =====================================================================================================
 # Example usage
 # =====================================================================================================
-analyzer = DumpindexAnalyzer()
+# analyzer = DumpindexAnalyzer()
 
 # Testwith different inputs
-test_inputs = [
-    "Pls fix my code. Urgent!!!",
-    """I'm trying to implement a login function in Python. 
-    When calling auth.login(), I get a TypeError. 
-    Here's my code:
-    ```python
-    def login(username, password):
-        return auth.login(username)
-    ```
-    I'm using Python 3.8 and the auth library version 2.1."""
-]
+# test_inputs = [
+#    "Pls fix my code. Urgent!!!",
+#    """I'm trying to implement a login function in Python. 
+#    When calling auth.login(), I get a TypeError. 
+#    Here's my code:
+#    ```python
+#    def login(username, password):
+#       return auth.login(username)
+#    ```
+#    I'm using Python 3.8 and the auth library version 2.1."""
+#]
 
-for input_text in test_inputs:
-    result = analyzer.analyze_input(input_text)
-    print(f"\nAnalyse für: {input_text[:50]}...")
-    print(f"ADI: {result['adi']}")
-    print(f"Entscheidung: {result['decision']}")
-    print("Empfehlungen:")
-    for rec in result['recommendations']:
-        print(f"- {rec}")
-    print("\nMetriken:", result['metrics'])
+# for input_text in test_inputs:
+#    result = analyzer.analyze_input(input_text)
+#    print(f"\nAnalyse für: {input_text[:50]}...")
+#    print(f"ADI: {result['adi']}")
+#    print(f"Entscheidung: {result['decision']}")
+#    print("Empfehlungen:")
+#    for rec in result['recommendations']:
+#        print(f"- {rec}")
+#    print("\nMetriken:", result['metrics'])
+# =====================================================================================================
+# Example usage end
+# =====================================================================================================
