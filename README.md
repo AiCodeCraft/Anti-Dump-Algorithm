@@ -33,7 +33,9 @@ $$
 9. [AI Integration & Workflow](#9-ai-integration--workflow)  
 10. [Example Code (Sketch)](#10-example-code-sketch)  
 11. [Conclusion](#11-conclusion)  
-12. [License & Acknowledgments](#12-license--acknowledgments)  
+12. [License & Acknowledgments](#12-license--acknowledgments)
+13. [How to use](HOW-TO-USE.md)
+
 
 </details>
 
@@ -284,8 +286,7 @@ else:
 
 ---
 
-#### Other Example
-- [How to use](HOW-TO-USE.md)
+
 
 ## 11. Conclusion
 
