@@ -57,6 +57,7 @@ This file demonstrates how to use the `adi.py` implementation in a simple Flask 
 
 [View `example_app.py` Source Code](./example_app.py)
 
+
 ---
 
 ## Key Steps for AI Integration
@@ -71,7 +72,42 @@ This file demonstrates how to use the `adi.py` implementation in a simple Flask 
 4. **Feedback Loop**:
    - Provide recommendations for improving input quality based on detected issues.
 
+### Example
+#### Selector 
+This example analyzes the input, calculates the ADI value, and selects the appropriate API based on the quality of the input. 
+This ensures that lower-cost APIs are used for less valuable inputs and higher-performance APIs are used for higher-quality inputs.
+```
+# Import
+from adi import DumpindexAnalyzer
+
+# Initialisiere ADI-Analyzer
+analyzer = DumpindexAnalyzer()
+
+# API selection function based on ADI
+def choose_api_based_on_adi(input_text):
+    result = analyzer.analyze_input(input_text)
+    adi_value = result['adi']
+    
+    if adi_value > 1:
+        return "GPT-3.5"
+    elif 0 <= adi_value <= 1:
+        return "GPT-4"
+    else:
+        return "o3"
+
+# Example input
+input_text = "Pls fix my code. Urgent!!!"
+
+# API selection based auf ADI
+chosen_api = choose_api_based_on_adi(input_text)
+print(f"Die gewählte API ist: {chosen_api}")
+```
+### Copyright
+S. Volkan Kücükbudak
+
 ---
 
 **Stay Dump-Free!** 🚀
+
+
 
