@@ -41,10 +41,9 @@ ADI = \frac{w_N \cdot \text{Noise} - (w_E \cdot \text{Effort} + w_B \cdot \text{
 ---
 
 ## Example Code
-- see example_app.py
+- see [Example App](example_app.py)
 or Below is the Python implementation of the Anti-Dump Algorithm:
 
-```
 
 ```python
 from adi import DumpindexAnalyzer
