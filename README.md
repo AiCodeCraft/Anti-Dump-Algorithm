@@ -192,7 +192,24 @@ $$
 $$
 \text{Noise}_{\text{Typos}} = \frac{\text{Incorrect Words}}{\text{Total Words}}
 $$
+```
+def calculate_typos(self, text: str) -> float:
+    """
+    Berechnet den Anteil von Tippfehlern im Text und passt den Noise-Wert basierend auf der Fehlerquote an.
+    """
+    words = text.split()
+    total_words = len(words)
+    
+    # Pseudo-Wörter, die wahrscheinlich Tippfehler sind (z. B. häufige Tippfehler, einfache Wortlisten)
+    typo_pattern = r'\b[a-zA-Z]{1,2}\b|\b[^\s]+[^a-zA-Z0-9\s]+\b'
+    typos = len(re.findall(typo_pattern, text))
+    
+    typo_percentage = typos / max(total_words, 1)
+    
+    # Wenn die Tippfehlerquote mehr als 10 % beträgt, wird dies als potenziell nachlässig gewertet
+    return typo_percentage
 
+```
 ### 7.2 Profiling Index (Pseudo-Competence)
 Identifies inputs that sound fancy but lack substance:
 
@@ -200,17 +217,68 @@ $$
 \text{Profiling Index} = \frac{\text{PseudoTerms} + \text{Noise}}{\text{Effort} + \text{Details}}
 $$
 
+```
+def calculate_profiling_index(self, text: str) -> float:
+    """
+    Berechnet den Profiling-Index, der Inputs bewertet, die auf den ersten Blick kompetent klingen, aber keine substanzielle Information bieten.
+    """
+    # Beispielhafte Pseudo-Terme, die als "fancy" aber wenig substantiell gelten
+    pseudo_terms = r'\b(optimal|synergy|innovative|disruptive|synergize)\b'
+    pseudo_matches = len(re.findall(pseudo_terms, text.lower()))
+    
+    # Profiling-Index ist eine Kombination aus Pseudo-Begriffen, Noise, Effort und Details
+    noise_value, _ = self.calculate_noise(text)
+    effort_value = self.calculate_effort(text)
+    details_value, _ = self.calculate_details(text)
+    
+    profiling_index = (pseudo_matches + noise_value * effort_value + details_value)
+    
+    return profiling_index
+
+```
+
 ### 7.3 Adjusted Noise Calculation
 
 $$
 \text{Noise}_{\text{Adjusted}} = \text{Noise} \cdot \Bigl( 1 - \frac{\text{Details}}{\text{Total Words}} \Bigr)
 $$
 
+```
+def calculate_adjusted_noise(self, text: str) -> float:
+    """
+    Berechnet den angepassten Noise-Wert, der Details und die Gesamtzahl der Wörter berücksichtigt.
+    """
+    noise_value, _ = self.calculate_noise(text)
+    total_words = len(text.split())
+    details_value, _ = self.calculate_details(text)
+    
+    adjusted_noise = noise_value * (1 - details_value / max(total_words, 1))
+    
+    return adjusted_noise
+
+```
+
 ### 7.4 Anti-Dump Score (Inverse)
 
 $$
 \text{AntiDumpScore} = \frac{\text{Effort} + \text{Context} + \text{Details}}{\text{Noise} + 1}
 $$
+
+```
+def calculate_anti_dump_score(self, text: str) -> float:
+    """
+    Berechnet den Anti-Dump-Score (inverse), der die Effizienz und Substanz des Textes misst.
+    """
+    effort_value = self.calculate_effort(text)
+    context_value = self.calculate_context(text)
+    details_value, _ = self.calculate_details(text)
+    noise_value = self.calculate_noise(text)[0]
+    
+    anti_dump_score = (effort_value + context_value + details_value) / (noise_value + 1)
+    
+    return anti_dump_score
+
+```
 
 
 ## 8. Applications
