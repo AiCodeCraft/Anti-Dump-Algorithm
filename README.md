@@ -4,6 +4,8 @@
 > *We measure "Dumpiness" by quantifying Noise vs. Effort, Context, and Details.* 😅
 
 ![ADI Anti-Dump-Index](adi.png)
+![ADI Anti-Dump-Index](adi-universal.jpg)
+
 
 **The Core Problem**: When developing AI tools, you'll encounter surprisingly unproductive "dumpy" inputs that waste time and money. Large Language Models (LLMs) answer even the most irrelevant queries. 
 
