@@ -1,19 +1,59 @@
-# How to use Anti-Dump-Algorithm to calculate ADI (ANTI-DUMP-INDEX)
-# ==== Copyright 2008 - 2025 S. Volkan Kücükbudak ====
-# NOTE! THIS IS NOT AN APP!
-# IT SHOWS YOU HOW YOU CAN USE ADI - MAYBE FOR YOUR AI TOOLS
-# ==== IF YOU USE MY CODE READ LICENSE FILE PLEASE ====
-# DONT STEAL FREE CODE FROM OTHERS! RESPECT FREE WORK OF DEVELOPERS AND THEIR CREDITS OR IN FUTURE YOU MUST PAY FOR CODE LIKE THIS!
-# ==== Copyright 2008 - 2025 S. Volkan Kücükbudak ====
+# =====================================================================================================
+# Anti-Dump Algorithm (ADI)
+# A mathematical framework for evaluating and filtering low-quality, unproductive text inputs.
+#
+# Copyright 2008 - 2025 S. Volkan Kücükbudak
+# NOTE: This file contains the core logic for calculating the ADI. It is not an application itself.
+# It serves as a library to be integrated into other tools.
+#
+# IF YOU USE THIS CODE, PLEASE READ THE LICENSE FILE.
+# Do not steal free code. Respecting developers' credits ensures that projects like this remain open-source.
+# =====================================================================================================
 
-# Import necessary libraries
+# =====================================================================================================
+# QUICK USAGE EXAMPLE
+# This section demonstrates how to initialize the analyzer and run it on sample texts.
+# Uncomment the code below to see the ADI in action.
+# =====================================================================================================
+#
+# analyzer = DumpindexAnalyzer()
+#
+# test_inputs = [
+#     "Pls fix my code. Urgent!!!",
+#     """I'm trying to implement a login function in Python. 
+#     When calling auth.login(), I get a TypeError. 
+#     Here's my code:
+#     ```python
+#     def login(username, password):
+#         return auth.login(username)
+#     ```
+#     I'm using Python 3.8 and the auth library version 2.1."""
+# ]
+#
+# for input_text in test_inputs:
+#     result = analyzer.analyze_input(input_text)
+#     print("-" * 50)
+#     print(f"Analysis for: {input_text[:50]}...")
+#     print(f"ADI: {result['adi']}")
+#     print(f"Decision: {result['decision']}")
+#     print("Recommendations:")
+#     for rec in result['recommendations']:
+#         print(f"- {rec}")
+#     print("\nMetrics:", result['metrics'])
+# print("-" * 50)
+#
+# =====================================================================================================
+# END OF EXAMPLE
+# =====================================================================================================
+
+# Import necessary libraries for data structuring, text processing, and mathematical operations.
 from dataclasses import dataclass
 from typing import List, Dict, Tuple
 import re
-from collections import Counter
 import numpy as np
 
-# Define InputMetrics class to store metrics for evaluation
+# A dataclass to hold the results of the metric analysis.
+# This provides a clean, structured way to pass metrics throughout the analyzer.
 @dataclass
 class InputMetrics:
     noise: float
@@ -23,10 +63,12 @@ class InputMetrics:
     bonus_factors: float
     penalty_factors: float
 
-# DumpIndexAnalyzer class to analyze inputs based on ADI logic
+# The main class for the Anti-Dump Algorithm.
+# It handles the entire analysis workflow, from metric extraction to ADI calculation and recommendations.
 class DumpindexAnalyzer:
     def __init__(self, weights: Dict[str, float] = None):
-        # Default weights for different metrics in ADI calculation
+        # Default weights for each metric. These can be customized to suit specific use cases.
+        # For instance, increasing the 'details' weight for a technical support forum.
         self.weights = weights or {
             'noise': 1.0,
             'effort': 2.0,
@@ -36,19 +78,18 @@ class DumpindexAnalyzer:
             'penalty': 1.0
         }
         
-       # The following patterns are a simple example for demonstration purposes only.
-        # For production environments, it is recommended to outsource these datasets into separate files (e.g., JSON)
-        # or a database to make them easier to manage and update.
+        # Datasets for pattern matching.
+        # These are simple examples. For production, consider externalizing these patterns
+        # into a JSON file or a database for easier management and updates.
 
-        # Dataset for identifying "Noise" elements in the text
-        # The patterns can be adjusted or extended depending on the use case.
+        # Patterns for identifying "Noise" elements (e.g., urgency, informal language).
         self.noise_patterns = {
             'urgency': r'\b(urgent|asap|emergency|!!+|\?\?+)\b',
             'informal': r'\b(pls|plz|thx)\b',
             'vague': r'\b(something|somehow|maybe|probably)\b'
         }
         
-        # Dataset for identifying technical details and context information
+        # Patterns for identifying technical details and context information.
         self.detail_patterns = {
             'code_elements': r'\b(function|class|method|variable|array|object)\b',
             'technical_terms': r'\b(error|exception|bug|issue|crash|fail)\b',
@@ -57,8 +98,8 @@ class DumpindexAnalyzer:
 
     def calculate_noise(self, text: str) -> Tuple[float, Dict]:
         """
-        Calculate the noise in the input text by identifying patterns such as urgency, informality, and vagueness.
-        Returns the noise ratio and details of matches.
+        Calculates the noise ratio in the input text by detecting irrelevant or informal words.
+        Returns the ratio of noise words to total words, and a dictionary of all matched patterns.
         """
         noise_count = 0
         noise_details = {}
@@ -73,8 +114,8 @@ class DumpindexAnalyzer:
 
     def calculate_effort(self, text: str) -> float:
         """
-        Evaluate the effort put into structuring the input.
-        Includes sentence length, formatting, and punctuation.
+        Assesses the effort invested in the input's structure, including sentence quality,
+        formatting (e.g., code blocks), and punctuation. A higher score indicates better structure.
         """
         sentences = [s.strip() for s in re.split(r'[.!?]+', text) if s.strip()]
         if not sentences:
@@ -94,10 +135,10 @@ class DumpindexAnalyzer:
 
     def calculate_context(self, text: str) -> float:
         """
-        Evaluate the context provided in the input.
-        Identifies indicators such as background, environment, or goal statements.
+        Measures the presence of background information. It identifies key phrases
+        that signal the user is providing a use case, environment details, or goals.
         """
-        context_indicators = { # This is only an example and you will need your own context_indicators 
+        context_indicators = {
             'background': r'\b(because|since|as|when|while)\b',
             'environment': r'\b(using|version|environment|platform|system)\b',
             'goal': r'\b(trying to|want to|need to|goal is|attempting to)\b'
@@ -112,8 +153,8 @@ class DumpindexAnalyzer:
 
     def calculate_details(self, text: str) -> Tuple[float, Dict]:
         """
-        Evaluate the level of technical details provided in the input.
-        Returns a score and the details identified.
+        Quantifies the level of technical depth. This function looks for specific
+        technical keywords, code snippets, and structured data that adds value.
         """
         detail_score = 0.0
         detail_findings = {}
@@ -128,7 +169,8 @@ class DumpindexAnalyzer:
 
     def calculate_bonus_factors(self, text: str) -> float:
         """
-        Identify and score bonus factors such as code blocks, links, and structured lists.
+        Identifies and rewards positive formatting elements like code blocks,
+        links, or bulleted lists, which significantly improve clarity.
         """
         bonus_score = 0.0
         
@@ -143,8 +185,8 @@ class DumpindexAnalyzer:
 
     def calculate_penalty_factors(self, text: str) -> Tuple[float, Dict]:
         """
-        Identify penalties for issues such as excessive capitalization, punctuation, or very short inputs.
-        Returns a penalty score and details of penalties.
+        Deducts points for negative characteristics, such as excessive capitalization,
+        redundant punctuation (e.g., "!!!"), or inputs that are too short to be useful.
         """
         penalties = {}
         
@@ -164,7 +206,8 @@ class DumpindexAnalyzer:
 
     def calculate_adi(self, metrics: InputMetrics) -> float:
         """
-        Calculate the Anti-Dump Index (ADI) using the provided metrics and weights.
+        Calculates the final Anti-Dump Index (ADI) score using the weighted formula.
+        The denominator is protected against division by zero to ensure stability.
         """
         try:
             numerator = (
@@ -182,9 +225,13 @@ class DumpindexAnalyzer:
             print(f"Error calculating ADI: {e}")
             return float('inf')
 
-   def analyze_input(self, text: str) -> Dict:
+    def analyze_input(self, text: str) -> Dict:
         """
-        Analyze the input text and return the calculated ADI, metrics, decisions, and recommendations.
+        This is the main entry point for the analysis. It orchestrates the entire process:
+        1. Calls all individual metric calculation functions.
+        2. Consolidates the results into an InputMetrics object.
+        3. Calculates the final ADI score.
+        4. Generates a human-readable decision and specific recommendations for the user.
         """
         noise_value, noise_details = self.calculate_noise(text)
         effort_value = self.calculate_effort(text)
@@ -192,7 +239,7 @@ class DumpindexAnalyzer:
         details_value, detail_findings = self.calculate_details(text)
         bonus_value = self.calculate_bonus_factors(text)
         penalty_value, penalty_details = self.calculate_penalty_factors(text)
-            
+        
         metrics = InputMetrics(
             noise=noise_value,
             effort=effort_value,
@@ -201,12 +248,12 @@ class DumpindexAnalyzer:
             bonus_factors=bonus_value,
             penalty_factors=penalty_value
         )
-            
+        
         adi = self.calculate_adi(metrics)
-            
+        
         decision = self._make_decision(adi)
         recommendations = self._generate_recommendations(metrics, noise_details, detail_findings, penalty_details)
-            
+        
         return {
             'adi': round(adi, 3),
             'metrics': {
@@ -219,7 +266,7 @@ class DumpindexAnalyzer:
             },
             'decision': decision,
             'recommendations': recommendations,
-                details': {
+            'details': {
                 'noise_findings': noise_details,
                 'technical_details': detail_findings,
                 'penalties': penalty_details
@@ -228,8 +275,9 @@ class DumpindexAnalyzer:
 
     def _make_decision(self, adi: float) -> str:
         """
-        Make a decision based on the calculated ADI value.
-         """
+        Translates the numerical ADI score into a categorical decision: REJECT,
+        MEDIUM_PRIORITY, or HIGH_PRIORITY.
+        """
         if adi > 1:
             return "REJECT"
         elif 0 <= adi <= 1:
@@ -237,27 +285,28 @@ class DumpindexAnalyzer:
         else:
             return "HIGH_PRIORITY"
 
-    def _generate_recommendations(self, metrics: InputMetrics, 
-                                noise_details: Dict, 
-                                detail_findings: Dict,
-                                penalty_details: Dict) -> List[str]:
+    def _generate_recommendations(self, metrics: InputMetrics,
+                                 noise_details: Dict,
+                                 detail_findings: Dict,
+                                 penalty_details: Dict) -> List[str]:
         """
-        Generate recommendations for improving the input based on the metrics and findings.
+        Generates actionable suggestions to help the user improve their input.
+        The recommendations are based on which metrics scored low.
         """
-        recommendations = [] # This is only an example and you will need your own recommendations with different values to teach the users *lol
-            
+        recommendations = []
+        
         if metrics.noise > 0.3:
             recommendations.append("Reduce informal or urgent expressions.")
-                
+            
         if metrics.context < 1.0:
             recommendations.append("Provide more context (environment, background, goal).")
-                
+            
         if metrics.details < 1.0:
             recommendations.append("Include specific technical details.")
-                
+            
         if metrics.effort < 2.0:
             recommendations.append("Improve the structure of your input.")
-                
+            
         if metrics.penalty_factors > 0:
             if 'excessive_caps' in penalty_details:
                 recommendations.append("Avoid excessive capitalization.")
@@ -267,36 +316,3 @@ class DumpindexAnalyzer:
                 recommendations.append("Provide a more detailed description.")
                     
         return recommendations
-
-# ADI END
-
-# =====================================================================================================
-# Example usage
-# =====================================================================================================
-# analyzer = DumpindexAnalyzer()
-
-# Testwith different inputs
-# test_inputs = [
-#    "Pls fix my code. Urgent!!!",
-#    """I'm trying to implement a login function in Python. 
-#    When calling auth.login(), I get a TypeError. 
-#    Here's my code:
-#    ```python
-#    def login(username, password):
-#       return auth.login(username)
-#    ```
-#    I'm using Python 3.8 and the auth library version 2.1."""
-#]
-
-# for input_text in test_inputs:
-#    result = analyzer.analyze_input(input_text)
-#    print(f"\nAnalyse für: {input_text[:50]}...")
-#    print(f"ADI: {result['adi']}")
-#    print(f"Entscheidung: {result['decision']}")
-#    print("Empfehlungen:")
-#    for rec in result['recommendations']:
-#        print(f"- {rec}")
-#    print("\nMetriken:", result['metrics'])
-# =====================================================================================================
-# Example usage end
-# =====================================================================================================
