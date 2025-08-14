@@ -341,6 +341,3 @@ Apache 2.0 License - [Full Text](LICENSE)
 **Stay Dump-Free!** 🚀
 
 
-5. **Praxisbezug** durch durchgängige Beispiele gewahrt
-
-Die Struktur folgt einem klaren Lernpfad: Konzept → Formel → Implementierung → Erweiterungen → Praxisintegration.
