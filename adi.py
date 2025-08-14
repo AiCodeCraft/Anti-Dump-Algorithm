@@ -36,14 +36,19 @@ class DumpindexAnalyzer:
             'penalty': 1.0
         }
         
-        # Patterns for identifying "Noise" elements in text - This is only an example and you will need your own noise_patterns
+       # The following patterns are a simple example for demonstration purposes only.
+        # For production environments, it is recommended to outsource these datasets into separate files (e.g., JSON)
+        # or a database to make them easier to manage and update.
+
+        # Dataset for identifying "Noise" elements in the text
+        # The patterns can be adjusted or extended depending on the use case.
         self.noise_patterns = {
             'urgency': r'\b(urgent|asap|emergency|!!+|\?\?+)\b',
             'informal': r'\b(pls|plz|thx)\b',
             'vague': r'\b(something|somehow|maybe|probably)\b'
         }
         
-        # Patterns to identify technical details - This is only an example and you will need your own detail_patterns
+        # Dataset for identifying technical details and context information
         self.detail_patterns = {
             'code_elements': r'\b(function|class|method|variable|array|object)\b',
             'technical_terms': r'\b(error|exception|bug|issue|crash|fail)\b',
