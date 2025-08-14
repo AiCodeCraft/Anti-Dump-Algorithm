@@ -68,7 +68,7 @@ class InputMetrics:
 class DumpindexAnalyzer:
     def __init__(self, weights: Dict[str, float] = None):
         # Default weights for each metric. These can be customized to suit specific use cases.
-        # For instance, increasing the 'details' weight for a technical support forum.
+        # These can be customized to suit specific use cases (e.g., technical support, creative writing).
         self.weights = weights or {
             'noise': 1.0,
             'effort': 2.0,
@@ -77,12 +77,19 @@ class DumpindexAnalyzer:
             'bonus': 0.5,
             'penalty': 1.0
         }
-        
-        # Datasets for pattern matching.
-        # These are simple examples. For production, consider externalizing these patterns
-        # into a JSON file or a database for easier management and updates.
+        # =====================================================================================================
+        # NOTE: Datasets for Metric Extraction
+        # =====================================================================================================
+        # The patterns below serve as simple, readable examples for a showcase.
+        # For a production environment, you should replace these static patterns
+        # with more dynamic and scalable solutions.
 
+        # --- OPTION 1: Static Regular Expressions ---
+        # These patterns are easy to understand but are limited to specific keywords and syntax.
+        
+        # Demo Example: 
         # Patterns for identifying "Noise" elements (e.g., urgency, informal language).
+        
         self.noise_patterns = {
             'urgency': r'\b(urgent|asap|emergency|!!+|\?\?+)\b',
             'informal': r'\b(pls|plz|thx)\b',
@@ -95,6 +102,25 @@ class DumpindexAnalyzer:
             'technical_terms': r'\b(error|exception|bug|issue|crash|fail)\b',
             'specifics': r'[a-zA-Z_][a-zA-Z0-9_]*\.[a-zA-Z_][a-zA-Z0-9_]*'
         }
+        
+        # --- OPTION 2: Machine Learning Models (Alternative, commented out) ---
+        # For a more robust approach, you could use pre-trained ML models to classify text.
+        # This allows for more nuanced and context-aware metric extraction.
+        # Example:
+        # from your_ml_library import TextClassifier
+        # self.noise_classifier = TextClassifier('noise_model.pkl')
+        # self.detail_classifier = TextClassifier('detail_model.pkl')
+
+        # --- OPTION 3: LLM Embeddings (Advanced, commented out) ---
+        # For the most sophisticated approach, you can use LLM embeddings to measure
+        # the semantic similarity of the input to a set of "noise" and "detail" vectors.
+        # This is highly effective against subtle "dumpiness" or new forms of jargon.
+        # Example:
+        # from your_llm_library import get_embedding
+        # self.noise_vector = get_embedding("urgent help pls asap")
+        # self.detail_vector = get_embedding("error stack trace with code example")
+
+ # end main class
 
     def calculate_noise(self, text: str) -> Tuple[float, Dict]:
         """
